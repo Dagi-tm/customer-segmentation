@@ -1,0 +1,685 @@
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+/* ---------- Brand intro ---------- */
+
+.brand-intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 2.5rem 1.5rem 4rem;
+  margin: -3.5rem calc(-50vw + 50%) 2.5rem;
+  background: #000000;
+  overflow: hidden;
+}
+
+.brand-intro::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4.5rem;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+}
+
+.brand-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(201, 162, 39, 0.04) 48%,
+    rgba(201, 162, 39, 0.07) 50%,
+    rgba(201, 162, 39, 0.04) 52%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 260% 100%;
+  animation: sheen-sweep 22s linear infinite;
+  pointer-events: none;
+}
+
+.brand-intro > * {
+  position: relative;
+}
+
+.brand-mark {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.7);
+  animation: mark-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-mark svg path,
+.brand-mark svg circle:not(:last-child) {
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: mark-draw 1s ease forwards 0.15s;
+}
+
+@keyframes mark-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mark-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.brand-tagline {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: tagline-in 0.7s ease forwards 0.5s;
+}
+
+@keyframes tagline-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheen-sweep {
+  0% {
+    background-position: -130% 0;
+  }
+  100% {
+    background-position: 130% 0;
+  }
+}
+
+/* ---------- Stats bar ---------- */
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  background: var(--bg-surface);
+  padding: 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Methodology strip ---------- */
+
+.methodology {
+  margin-bottom: 2rem;
+}
+
+.methodology h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 0 0 1.25rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.step {
+  border-top: 2px solid var(--accent-gold);
+  padding-top: 0.9rem;
+}
+
+.step-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.step h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 1.02rem;
+  margin: 0.3rem 0 0.4rem;
+}
+
+.step p {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-divider {
+  opacity: 0.5;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.masthead h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0.5rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.subhead {
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------- Panels ---------- */
+
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.panel h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 0 0 1.25rem;
+}
+
+/* ---------- Form ---------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.1rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field input {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 3rem 0.6rem 0.7rem;
+  color: var(--text-primary);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 1px;
+}
+
+.unit {
+  position: absolute;
+  right: 0.7rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: "IBM Plex Mono", monospace;
+  pointer-events: none;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.75rem;
+  background: var(--accent-gold);
+  color: #1a1204;
+  border: none;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.error-text {
+  margin-top: 1.1rem;
+  color: var(--accent-amber);
+  font-size: 0.9rem;
+}
+
+.loading-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Result stamp ---------- */
+
+.result-stamp {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--stamp-accent);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  opacity: 0;
+  transform: scale(0.9) rotate(-4deg);
+}
+
+.result-stamp.is-stamped {
+  animation: stamp-press 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
+
+@keyframes stamp-press {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) rotate(-6deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.stamp-ring {
+  flex-shrink: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--stamp-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stamp-cluster {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.1rem;
+  color: var(--stamp-accent);
+}
+
+.stamp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stamp-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.stamp-name {
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+}
+
+/* ---------- Comparison chart ---------- */
+
+.chart-panel {
+  margin-top: 1rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+}
+
+.chart-legend .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.dot-customer {
+  background: var(--chart-accent);
+}
+.dot-segment {
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 90px;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.chart-row-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chart-bar-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-customer {
+  background: var(--chart-accent);
+}
+.bar-segment {
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+.chart-values {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+/* ---------- Segment dashboard ---------- */
+
+.segment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.1rem;
+}
+
+.segment-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--card-accent);
+  border-radius: 8px;
+  padding: 1.1rem 1.2rem;
+  opacity: 0;
+  animation: card-rise 0.45s ease forwards;
+  transition: background 0.15s ease;
+}
+
+.segment-card:hover {
+  background: var(--bg-surface-hover);
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.segment-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.segment-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--card-accent);
+}
+/* ---------- Batch upload ---------- */
+
+.batch-hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.1rem;
+}
+
+.batch-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.batch-form input[type="file"] {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.batch-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.batch-summary-chip {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.batch-summary-count {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.3rem;
+  color: var(--accent-gold);
+}
+
+.batch-summary-name {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.batch-table-wrap {
+  margin-top: 1.3rem;
+  overflow-x: auto;
+}
+
+.batch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.batch-table th {
+  text-align: left;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.batch-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--text-primary);
+}
+
+.batch-table tr:hover td {
+  background: var(--bg-surface-hover);
+}
+
+.segment-index {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.segment-card h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 0 0.9rem;
+  line-height: 1.3;
+}
+
+.segment-stats {
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.segment-stats div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.segment-stats dt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.segment-stats dd {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.88rem;
+}
+
+.segment-stats .highlight dd {
+  color: var(--card-accent);
+  font-weight: 500;
+}

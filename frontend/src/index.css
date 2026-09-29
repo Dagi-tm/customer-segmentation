@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg-primary: #0b1428;
+  --bg-surface: #131f3d;
+  --bg-surface-hover: #182549;
+  --border: #232f4e;
+  --text-primary: #f5f7fa;
+  --text-muted: #7c88a6;
+  --accent-gold: #c9a227;
+  --accent-teal: #2dd4bf;
+  --accent-amber: #d98e4a;
+  --accent-slate: #6b7a9e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg-primary);
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
